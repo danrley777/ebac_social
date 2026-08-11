@@ -111,4 +111,9 @@ O `docker-compose.yml` é destinado ao desenvolvimento local. O Render não faz
 deploy diretamente por Docker Compose: ele usa o `render.yaml`, construindo o
 backend pelo `backend/Dockerfile` e o frontend como Static Site.
 
+Se o serviço de API tiver sido criado manualmente em vez de pelo Blueprint,
+configure **Dockerfile Path** como `./backend/Dockerfile` e **Docker Build
+Context Directory** como `./backend`. No Blueprint esses caminhos já estão
+declarados explicitamente.
+
 > O link definitivo só existe após conectar as contas Neon, GitHub e Render. Nenhum segredo deve ser versionado.
