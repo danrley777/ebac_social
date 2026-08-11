@@ -2,8 +2,8 @@ services:
   - type: web
     name: ebac-social-api
     runtime: docker
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     plan: free
     autoDeployTrigger: commit
     healthCheckPath: /health/
