@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: ebac-social-api
+    name: ebac-social
     runtime: docker
     dockerfilePath: ./Dockerfile
     dockerContext: .
@@ -15,11 +15,11 @@ services:
       - key: DATABASE_URL
         sync: false
       - key: DJANGO_ALLOWED_HOSTS
-        value: ebac-social-api.onrender.com
+        value: ebac-social.onrender.com
       - key: CORS_ALLOWED_ORIGINS
-        value: https://ebac-social.onrender.com
+        value: https://ebac-social-1.onrender.com
   - type: web
-    name: ebac-social
+    name: ebac-social-1
     runtime: static
     rootDir: frontend
     autoDeployTrigger: commit
@@ -27,7 +27,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        value: https://ebac-social-api.onrender.com/api
+        value: https://ebac-social.onrender.com/api
     routes:
       - type: rewrite
         source: /*
