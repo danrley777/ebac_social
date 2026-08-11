@@ -2,8 +2,10 @@ services:
   - type: web
     name: ebac-social-api
     runtime: docker
-    rootDir: backend
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     plan: free
+    autoDeployTrigger: commit
     healthCheckPath: /health/
     envVars:
       - key: SECRET_KEY
@@ -20,6 +22,7 @@ services:
     name: ebac-social
     runtime: static
     rootDir: frontend
+    autoDeployTrigger: commit
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
